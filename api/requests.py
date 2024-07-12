@@ -13,5 +13,20 @@ def make_step(data: StepData):
 def participate():
     response = req.put(SERVER_ADDRESS + 'play/zombidef/participate', headers=headers)
 
-def make_step():
-    pass
+def look_around():
+    response = req.get(SERVER_ADDRESS + 'play/zombidef/units', headers=headers)
+    
+    if (response.status_code != 200):
+        raise Exception("[look_around]: " + str(response.status_code) + " " + response.json()["error"])
+    
+    details = response.json()
+    return ChangingData(details)
+
+def watch_eternity():
+    response = req.get(SERVER_ADDRESS + 'play/zombidef/world', headers=headers)
+    
+    if (response.status_code != 200):
+        raise Exception("[watch_eternity]: " + str(response.status_code) + " " + response.json()["error"])
+    
+    details = response.json()
+    return ChangingData(details)
