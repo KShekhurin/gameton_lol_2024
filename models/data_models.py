@@ -28,7 +28,7 @@ class StepData:
         self.attacks = attacks
         self.builds = builds
         self.base_pos = base_pos
-        
+
     def as_dict(self):
         d = {"attacks" : [x.as_dict() for x in self.attacks],
              "builds" : [x.as_dict() for x in self.builds],
