@@ -7,7 +7,7 @@ class Point:
 
 class Attack:
     def __init__(self, build_id: str, target: Point):
-        self.build_id = build_id
+        self.block_id = build_id
         self.target = target
 
 class StepData:
