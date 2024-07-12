@@ -9,7 +9,7 @@ headers = { 'X-Auth-Token': API_TOKEN }
 
 def make_step(data: StepData):
     response = req.post(
-        f"{SERVER_ADRESS}/play/zombidef/command",
+        f"{SERVER_ADDRESS}/play/zombidef/command",
         json=data.as_dict(),
         headers=headers
     )
@@ -38,4 +38,12 @@ def watch_eternity():
         raise Exception("[watch_eternity]: " + str(response.status_code) + " " + response.json()["error"])
     
     details = response.json()
-    return ChangingData(details)
+    return NotChangingData(details)
+
+def get_round():
+    response = req.get(SERVER_ADDRESS + 'play/zombidef', headers=headers)
+    
+    if (response.status_code != 200):
+        raise Exception("[get_round]: " + str(response.status_code) + " " + response.json()["error"])
+    
+    details = response.json()
