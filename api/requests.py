@@ -7,9 +7,17 @@ import requests as req
 headers = { 'X-Auth-Token': API_TOKEN }
 
 def make_step(data: StepData):
-    response = req.post( json=data.as_dict())
+    response = req.post(
+        f"{SERVER_ADRESS}/play/zombidef/command",
+        json=data.as_dict(),
+        headers=headers
+    )
 
-def make_step():
+    if response.status_code != 200:
+        return False
+    return True
+
+def ():
     pass
 
 def make_step():
