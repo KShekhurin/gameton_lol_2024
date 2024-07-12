@@ -1,5 +1,5 @@
-from ../setup import API_TOKEN, SERVER_ADRESS
-from ../models.data_models import *
+from ..setup import API_TOKEN, SERVER_ADRESS
+from ..models.data_models import *
 
 import requests as req
 
