@@ -3,7 +3,6 @@ from ..models.data_models import *
 
 import requests as req
 
-
 headers = { 'X-Auth-Token': API_TOKEN }
 
 def make_step(data: StepData):
