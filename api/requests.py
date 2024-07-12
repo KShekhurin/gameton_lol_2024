@@ -22,6 +22,9 @@ def make_step(data: StepData):
 def participate():
     response = req.put(SERVER_ADDRESS + 'play/zombidef/participate', headers=headers)
 
+    if (response.status_code != 200):
+        raise Exception("[participate]: " + str(response.status_code) + " " + response.json()["error"])
+
 def look_around():
     response = req.get(SERVER_ADDRESS + 'play/zombidef/units', headers=headers)
     
@@ -47,3 +50,4 @@ def get_round():
         raise Exception("[get_round]: " + str(response.status_code) + " " + response.json()["error"])
     
     details = response.json()
+    return GameRounds(details)
