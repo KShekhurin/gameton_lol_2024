@@ -99,3 +99,19 @@ class NotChangingData:
     def __init__(self, d : dict):
         self.real_name = d["realmName"]
         self.zpots = [ZPots(x) for x in d["zpots"]]
+
+
+class Round:
+    def __init__(self, d : dict):
+        self.duration = d["duration"]
+        self.end_at = d["endAt"]
+        self.name = d["name"]
+        self.repeat = d["repeat"]
+        self.start_at = d["startAt"]
+        self.status = d["status"]
+
+class GameRounds:
+    def __init__(self, d : dict):
+        self.game_name = d["gameName"]
+        self.now = d["now"]
+        self.rounds = [Round(x) for x in d["rounds"]]
