@@ -115,3 +115,9 @@ class GameRounds:
         self.game_name = d["gameName"]
         self.now = d["now"]
         self.rounds = [Round(x) for x in d["rounds"]]
+
+
+class ResponseToCommands:
+    def __init__(self, d : dict):
+        self.accepted_commands = [StepData(x) for x in d["acceptedCommands"]]
+        self.errors = [x for x in d["errors"]]
