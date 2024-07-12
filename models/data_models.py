@@ -35,3 +35,67 @@ class StepData:
              "base_pos" : self.base_pos.as_dict()}
         
         return d
+
+class Base:
+    def __init__(self, d : dict):
+        self.attacks = d["attacks"]
+        self.health = d["health"]
+        self.id = d["id"]
+        self.is_head = d["is_head"]
+        self.last_attack = d["last_attack"]
+        self.range = d["range"]
+        self.x = d["x"]
+        self.y = d["y"]
+
+class EnemyBlock:
+    def __init__(self, d : dict):
+        self.attacks = d["attacks"]
+        self.health = d["health"]
+        self.is_head = d["is_head"]
+        self.last_attack = d["last_attack"]
+        self.name = d["name"]
+        self.x = d["x"]
+        self.y = d["y"]
+
+class Player:
+    def __init__(self, d : dict):
+        self.enemy_block_kills = d["enemyBlockKills"]
+        self.game_ended_at = d["gameEndedAt"]
+        self.gold = d["gold"]
+        self.name = d["name"]
+        self.points = d["points"]
+        self.zombie_kills = d["zombieKills"]
+
+class Zombie:
+    def __init__(self, d : dict):
+        self.attack = d["attack"]
+        self.direction = d["direction"]
+        self.health = d["health"]
+        self.id = d["id"]
+        self.speed = d["speed"]
+        self.type = d["type"]
+        self.wait_turns = d["waitTurns"]
+        self.x = d["x"]
+        self.y = d["y"]
+
+class ChangingData:
+    def __init__(self, d : dict):
+        self.base = [Base(x) for x in d["base"]]
+        self.enemy_blocks = [EnemyBlock(x) for x in d["enemyBlocks"]]
+        self.player = [Player(x) for x in d["player"]]
+        self.real_name = d["realmName"]
+        self.turn = d["turn"]
+        self.turn_ends_in_ms = d["turnEndsInMs"]
+        self.zombies = [Zombie(x) for x in d["zombies"]]
+
+
+class ZPots:
+    def __init__(self, d : dict):
+        self.x = d["x"]
+        self.y = d["y"]
+        self.type = d["type"]
+
+class NotChangingData:
+    def __init__(self, d : dict):
+        self.real_name = d["realmName"]
+        self.zpots = [ZPots(x) for x in d["zpots"]]
