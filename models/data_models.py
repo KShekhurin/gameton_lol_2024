@@ -87,3 +87,15 @@ class ChangingData:
         self.turn = d["turn"]
         self.turn_ends_in_ms = d["turnEndsInMs"]
         self.zombies = [Zombie(x) for x in d["zombies"]]
+
+
+class ZPots:
+    def __init__(self, d : dict):
+        self.x = d["x"]
+        self.y = d["y"]
+        self.type = d["type"]
+
+class NotChangingData:
+    def __init__(self, d : dict):
+        self.real_name = d["realmName"]
+        self.zpots = [ZPots(x) for x in d["zpots"]]
