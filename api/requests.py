@@ -43,11 +43,11 @@ def watch_eternity():
     details = response.json()
     return NotChangingData(details)
 
-def get_round():
-    response = req.get(SERVER_ADDRESS + 'play/zombidef', headers=headers)
+def get_rounds():
+    response = req.get(SERVER_ADDRESS + 'rounds/zombidef', headers=headers)
     
     if (response.status_code != 200):
-        raise Exception("[get_round]: " + str(response.status_code) + " " + response.json()["error"])
+        raise Exception("[get_rounds]: " + str(response.status_code) + " " + response.json()["error"])
     
     details = response.json()
     return GameRounds(details)

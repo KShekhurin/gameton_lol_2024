@@ -106,7 +106,7 @@ class Round:
         self.duration = d["duration"]
         self.end_at = d["endAt"]
         self.name = d["name"]
-        self.repeat = d["repeat"]
+        #self.repeat = d["repeat"]
         self.start_at = d["startAt"]
         self.status = d["status"]
 
